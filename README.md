@@ -1,2 +1,2 @@
 # Notepad
-A notepad for saving important notes
+A notepad for writing and saving important notes
