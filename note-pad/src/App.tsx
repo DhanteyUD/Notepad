@@ -4,18 +4,9 @@ import NoteList from './components/note/NoteList';
 import Note from './models/note.model';
 import Header from './components/header/Header';
 import CreateNote from './components/note/CreateNote';
-import './App.css';
 
 function App() {
-  const [notes, setNotes] = useState<Note[]>([
-    {
-      id: new Date().toString(),
-      title: 'Note 1',
-      content: 'Note 1 content',
-      color: '#D3D3D3',
-      date: new Date().toString(),
-    },
-  ]);
+  const [notes, setNotes] = useState<Note[]>([]);
 
   return (
     <>
@@ -26,6 +17,7 @@ function App() {
             <CreateNote notes={notes} setNotes={setNotes} />
           </Col>
         </Row>
+        <hr style={{ padding: 2 }} />
         <Row>
           <Col>
             <NoteList notes={notes} setNotes={setNotes} />

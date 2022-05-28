@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, Form, FormGroup } from 'react-bootstrap';
+import { Button, Form, FormGroup, Alert } from 'react-bootstrap';
 import Note from '../../models/note.model';
 
 interface ICreateNotesProps {
@@ -19,8 +19,7 @@ const CreateNotes: React.FunctionComponent<ICreateNotesProps> = ({
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     if (titleRef.current?.value === '' || contentRef.current?.value === '') {
-      // alert('Title and content are required');
-      return setError('Both fields are required');
+      return setError('All fields are required');
     }
     setError('');
     setNotes([
@@ -33,11 +32,14 @@ const CreateNotes: React.FunctionComponent<ICreateNotesProps> = ({
         date: new Date().toString(),
       },
     ]);
+    (titleRef.current as HTMLInputElement).value = '';
+    (contentRef.current as HTMLTextAreaElement).value = '';
   };
 
   return (
     <>
-      <h2>Create Note</h2>
+      <h2 className="mt-5">Create Note</h2>
+      {error && <Alert variant="danger">{error}</Alert>}
       <Form
         className="mb-3 mt-3"
         onSubmit={(e: React.FormEvent<HTMLFormElement>) => handleSubmit(e)}
