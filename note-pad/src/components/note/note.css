@@ -1,0 +1,12 @@
+.note-container {
+  box-shadow: 5px 5px 9px rgba(0, 0, 0, 0.2);
+}
+
+.card {
+  margin-left: -24px;
+  border-radius: 0;
+}
+
+.edit {
+  margin-left: 10px;
+}
